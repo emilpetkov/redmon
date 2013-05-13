@@ -18,6 +18,9 @@ module Redmon
         [username, password] == Redmon.config.secure.split(':')
       end
     end
+    
+    set :views, Proc.new { File.join(File.dirname(__FILE__), "views") }
+    # set :public, File.join(File.dirname(__FILE__), 'static')
 
     get '/' do
       haml :app
